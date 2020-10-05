@@ -14,14 +14,22 @@ namespace myApp
 
             List<Commune> listeCommune = new List<Commune>();
 
-            while(true)
+            while (true)
             {
                 string choix_util = Menu_com();
 
-                if(choix_util == "1")
+                if (choix_util == "1")
                 {
                     Commune com = creerCommune();
                     listeCommune.Add(com);
+                }
+                else if (choix_util == "2")
+                {
+                    afficheCommune(listeCommune);
+                }
+                else
+                {
+                    Console.WriteLine("Veiller saisir un chiffre valide.");
                 }
             }
         }
@@ -32,7 +40,7 @@ namespace myApp
             Console.WriteLine("1 Créer une nouvelle ville");
             Console.WriteLine("2 Afficher l'ensemble des villes");
             choix_util = Console.ReadLine();
-        
+
             return choix_util;
         }
 
@@ -67,8 +75,18 @@ namespace myApp
             return valeurConvert;
         }
 
+        public static void afficheCommune(List<Commune> listeCommune)
+        {
+            foreach(Commune com in listeCommune)
+            {
+                Console.WriteLine("Nom : "+ com.nom + ", CodePostal : "+ com.code_postale);
+                Console.WriteLine("Nombre d'habitants : "+ com.nb_habitant);
+                Console.WriteLine("-----------------------------------------------------------------");
+            }
+
+
+        }
+
+
     }
-
-
-
 }
