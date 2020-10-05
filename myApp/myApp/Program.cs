@@ -27,6 +27,10 @@ namespace myApp
                 {
                     afficheCommune(listeCommune);
                 }
+                else if (choix_util == "3")
+                {
+                    NbTotaleHab(listeCommune);
+                }
                 else
                 {
                     Console.WriteLine("Veiller saisir un chiffre valide.");
@@ -37,8 +41,10 @@ namespace myApp
         public static string Menu_com()
         {
             string choix_util;
+            Console.WriteLine("Que voulez vous faire?");
             Console.WriteLine("1 Créer une nouvelle ville");
             Console.WriteLine("2 Afficher l'ensemble des villes");
+            Console.WriteLine("3 Afficher le nombre totale d'habitants");
             choix_util = Console.ReadLine();
 
             return choix_util;
@@ -78,7 +84,6 @@ namespace myApp
                 {
                     valide = true;
                 }
-             // else if(IsLower(nom, 1))
 
             }
             
@@ -113,6 +118,14 @@ namespace myApp
 
         }
 
-
+        public static void NbTotaleHab(List<Commune> listeCommune)
+        {
+            int nbHab = 0;
+            foreach(Commune com in listeCommune)
+            {
+                nbHab = nbHab + com.nb_habitant;
+            }
+            Console.WriteLine("Nombre d'habitant :" + nbHab);
+        }
     }
 }
