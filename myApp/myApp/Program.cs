@@ -57,6 +57,31 @@ namespace myApp
         {
             Console.WriteLine("Nom de la commune?");
             string nom = Console.ReadLine();
+            bool valide = false;
+            while (valide == false)
+            {
+                if (nom == "")
+                {
+                    Console.WriteLine("Saisie incorrecte : nom de la ville vide");
+                    nom = Console.ReadLine();
+                }
+                else if(int.TryParse(nom, out int communeNum))
+                {
+                    Console.WriteLine("Saisie incorrecte : nom de la ville ne doit pas être numérique");
+                    nom = Console.ReadLine();
+                }
+               /* else if()
+                {
+
+                }*/
+                else
+                {
+                    valide = true;
+                }
+             // else if(IsLower(nom, 1))
+
+            }
+            
             return nom;
         }
 
@@ -66,11 +91,12 @@ namespace myApp
             string entier = Console.ReadLine();
             int valeurConvert;
 
-            while (!int.TryParse(entier, out valeurConvert))
+            while (!int.TryParse(entier, out valeurConvert) || valeurConvert <=0)
             {
                 Console.WriteLine("Entrez un nombre valide svp");
                 entier = Console.ReadLine();
             }
+
 
             return valeurConvert;
         }
