@@ -125,7 +125,21 @@ namespace myApp
             {
                 nbHab = nbHab + com.nb_habitant;
             }
-            Console.WriteLine("Nombre d'habitant :" + nbHab);
+            Console.WriteLine("Nombre d'habitant :");
+            AfficheNbHabPropre(nbHab);
+        }
+
+        public static void AfficheNbHabPropre(int nbHab)
+        {
+            string NombreHab = nbHab.ToString();
+            for (int i = 0; i <= NombreHab.Length; i++)
+            {
+                Console.Write(NombreHab[i]);
+                if(i%3 == 0)
+                {
+                    Console.Write(".");
+                }
+            }
         }
     }
 }
