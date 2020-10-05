@@ -137,7 +137,7 @@ namespace myApp
                 Console.Write(NombreHab[i]);
                 if(i%3 == 0)
                 {
-                    Console.Write(".");
+                    Console.Write(",");
                 }
             }
         }
